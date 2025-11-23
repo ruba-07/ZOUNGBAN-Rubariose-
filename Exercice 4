@@ -1,0 +1,54 @@
+
+Question 1 : Modélisation formelle
+1.1. Variables d’état
+
+S=(ML​,CL​,B)
+ML ∈ {0,1,2,3}),
+CL ∈ {0,1,2,3}),
+B = position du bateau : 
+0 = bateau sur la rive gauche, 
+1 = bateau sur la rive droite.
+
+Les nombres sur la rive droite sont 
+𝑀R =3−MR
+𝐶𝑅=3−CL
+	​
+1.2. État initial et but
+
+État initial : 
+𝑆0 =(3,3,0) (tous à gauche, bateau à gauche).
+
+État but : 
+goal=(0,0,1) (tous à droite, bateau à droite).
+
+1.3. Actions 
+(ΔM,ΔC) avec 
+
+ΔM,ΔC∈{0,1,2}, 
+
+1≤ΔM+ΔC≤2.
+
+Si 
+B=0 , ​(ML​−ΔM,CL​−ΔC,1))
+
+Si 
+
+B=1 ,(ML​,CL​,1)=(ML​+ΔM,CL​+ΔC,0)
+
+1.4. Contraintes (validité d’un état)
+
+Un état est valide si, sur chaque rive, les missionnaires ne sont jamais en infériorité numérique face aux cannibales (sauf si il n’y a pas de missionnaire sur la rive) :
+
+Gauche : si ML>0 alors 𝑀𝐿 ≥𝐶𝐿
+Droite : si MR>0 alors 𝑀𝑅≥𝐶𝑅 
+
+Graphe d’états associé 
+
+
+Question 2 : Pourquoi les gens ont du mal à résoudre l’énigme ?
+
+La règle « ne jamais laisser des missionnaires en infériorité » est locale à chaque rive et dépend de la configuration après chaque traversée. On a tendance à raisonner de manière linéaire et omettons des conséquences futures.
+Beaucoup de « faux chemins
+Bien que petit, l’espace requiert une séquence d’actions plutôt qu’une simple intuition locale.
+
+Question 3. 
